@@ -27,13 +27,13 @@
     "passport-oauth2": "1.x.x"
   },
   "devDependencies": {
-    "mocha": "1.x.x",
-    "chai": "1.x.x"
+    "mocha": "2.4.5",
+    "chai": "3.5.0"
   },
   "engines": {
     "node": ">= 5.0.0"
   },
   "scripts": {
-    "test": "node_modules/.bin/mocha --reporter spec --require test/bootstrap/node test/*.test.js"
+    "test": "node_modules/.bin/mocha --reporter spec --require test/test-helper test/*.test.js"
   }
 }
