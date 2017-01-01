@@ -2,7 +2,7 @@
 
 const strategy = require("..");
 
-describe("passport-mondo", () => {
+describe("passport-monzo", () => {
   it("exports Strategy constructor directory from package", () => {
     expect(strategy).to.be.a("function");
     expect(strategy).to.equal(strategy.Strategy);

@@ -1,48 +1,56 @@
-# passport-mondo
+# passport-monzo
 
-[Passport](http://passportjs.org/) strategy for authenticating with
-[Mondo](https://getmondo.co.uk/) using the OAuth 2.0 API.
+[Passport](http://passportjs.org) strategy for authenticating with
+[Monzo](https://monzo.com) using the OAuth 2.0 API.
 
-This module lets you authenticate using Mondo in your Node.js applications. By
-plugging into Passport, Mondo authentication can be easily and unobtrusively
+This module lets you authenticate using Monzo in your Node.js applications. By
+plugging into Passport, Monzo authentication can be easily and unobtrusively
 integrated into any application or framework that supports
-[Connect](http://www.senchalabs.org/connect/)-style middleware, including
-[Express](http://expressjs.com/).
+[Connect](http://www.senchalabs.org/connect)-style middleware, including
+[Express](http://expressjs.com).
 
 ## Install
 
+Using `npm`:
+
 ```bash
-$ npm install passport-mondo
+$ npm install passport-monzo
+```
+
+Or `yarn`:
+
+```bash
+$ yarn install passport-monzo
 ```
 
 ## Usage
 
 #### Create an Application
 
-Before using `passport-mondo`, you must register an application with Mondo. If
-you have not already done so, a new application can be created at the [Mondo
-Developer Console](https://developers.getmondo.co.uk/). Your application will be
+Before using `passport-monzo`, you must register an application with Monzo. If
+you have not already done so, a new application can be created at the [Monzo
+Developer Console](https://developers.monzo.com/). Your application will be
 issued a client ID and client secret, which need to be provided to the strategy.
 
 #### Configure Strategy
 
-The Mondo authentication strategy authenticates users using a Mondo account and
+The Monzo authentication strategy authenticates users using a Monzo account and
 OAuth 2.0 tokens. The client ID and secret obtained when creating an application
 are supplied as options when creating the strategy. The strategy also requires a
 `verify` callback, which receives the access token and optional refresh token,
-as well as `profile` which contains the authenticated user's Mondo profile. The
+as well as `profile` which contains the authenticated user's Monzo profile. The
 `verify` callback must call `cb` providing a user to complete authentication.
 
 ```js
-var MondoStrategy = require('passport-mondo').Strategy;
+var MonzoStrategy = require('passport-monzo').Strategy;
 
-passport.use(new MondoStrategy({
+passport.use(new MonzoStrategy({
     clientID: MONDO_CLIENT_ID,
     clientSecret: MONDO_CLIENT_SECRET,
-    callbackURL: "http://127.0.0.1:3000/auth/mondo/callback"
+    callbackURL: "http://127.0.0.1:3000/auth/monzo/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
-    User.findOrCreate({ mondoId: profile.id }, function (err, user) {
+    User.findOrCreate({ monzoId: profile.id }, function (err, user) {
       return cb(err, user);
     });
   }
@@ -51,17 +59,17 @@ passport.use(new MondoStrategy({
 
 #### Authenticate Requests
 
-Use `passport.authenticate()`, specifying the `'mondo'` strategy, to
+Use `passport.authenticate()`, specifying the `'monzo'` strategy, to
 authenticate requests.
 
-For example, as route middleware in an [Express](http://expressjs.com/)
+For example, as route middleware in an [Express](http://expressjs.com)
 application:
 
 ```js
-app.get('/auth/mondo', passport.authenticate('mondo'));
+app.get('/auth/monzo', passport.authenticate('monzo'));
 
-app.get('/auth/mondo/callback', 
-  passport.authenticate('mondo', { failureRedirect: '/login' }),
+app.get('/auth/monzo/callback', 
+  passport.authenticate('monzo', { failureRedirect: '/login' }),
   function(req, res) {
     // Successful authentication, redirect home.
     res.redirect('/');

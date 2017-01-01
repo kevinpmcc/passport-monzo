@@ -11,7 +11,7 @@ describe("Strategy#userProfile", () => {
     }, () => {});
 
     strategy._oauth2.get = (url, accessToken, callback) => {
-      if (url != "https://api.getmondo.co.uk/accounts") {
+      if (url != "https://api.monzo.com/accounts") {
         return callback(new Error("wrong url argument"));
       }
 
@@ -38,7 +38,7 @@ describe("Strategy#userProfile", () => {
     });
 
     it("should parse profile", () => {
-      expect(profile.provider).to.equal("mondo");
+      expect(profile.provider).to.equal("monzo");
 
       expect(profile.id).to.equal("acc_000084l1RzaSFJv2KOnNsZ");
       expect(profile.displayName).to.equal("Tom Bell");
@@ -57,11 +57,11 @@ describe("Strategy#userProfile", () => {
     var strategy =  new MondoStrategy({
       clientID: "ABC123",
       clientSecret: "secret",
-      userProfileURL: "https://api.getmondo.dev/accounts"
+      userProfileURL: "https://api.monzo.dev/accounts"
     }, () => {});
 
     strategy._oauth2.get = (url, accessToken, callback) => {
-      if (url != "https://api.getmondo.dev/accounts") {
+      if (url != "https://api.monzo.dev/accounts") {
         return callback(new Error("wrong url argument"));
       }
 
@@ -85,7 +85,7 @@ describe("Strategy#userProfile", () => {
     });
 
     it("should parse profile", () => {
-      expect(profile.provider).to.equal("mondo");
+      expect(profile.provider).to.equal("monzo");
 
       expect(profile.id).to.equal("acc_000084l1RzaSFJv2KOnNsZ");
       expect(profile.displayName).to.equal("Tom Bell");

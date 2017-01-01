@@ -8,12 +8,12 @@ describe("Strategy", () => {
     clientSecret: "secret",
   }, () => {});
 
-  it("is named mondo", () => {
-    expect(strategy.name).to.equal("mondo");
+  it("is named monzo", () => {
+    expect(strategy.name).to.equal("monzo");
   });
 
   it("has default user agent", () => {
-    expect(strategy._oauth2._customHeaders["User-Agent"]).to.equal("passport-mondo");
+    expect(strategy._oauth2._customHeaders["User-Agent"]).to.equal("passport-monzo");
   });
 
   describe("constructed with user agent option", () => {
