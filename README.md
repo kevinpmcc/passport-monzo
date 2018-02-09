@@ -3,11 +3,10 @@
 [Passport](http://passportjs.org) strategy for authenticating with
 [Monzo](https://monzo.com) using the OAuth 2.0 API.
 
-This module lets you authenticate using Monzo in your Node.js applications. By
-plugging into Passport, Monzo authentication can be easily and unobtrusively
-integrated into any application or framework that supports
-[Connect](http://www.senchalabs.org/connect)-style middleware, including
-[Express](http://expressjs.com).
+This module lets you authenticate using Monzo. By plugging into Passport, Monzo
+authentication can be easily and unobtrusively integrated into any application
+or framework that supports [Connect](http://www.senchalabs.org/connect)-style
+middleware, including [Express](http://expressjs.com).
 
 ## Install
 
@@ -29,7 +28,7 @@ $ yarn install passport-monzo
 
 Before using `passport-monzo`, you must register an application with Monzo. If
 you have not already done so, a new application can be created at the [Monzo
-Developer Console](https://developers.monzo.com/). Your application will be
+Developer Console](https://developers.monzo.com). Your application will be
 issued a client ID and client secret, which need to be provided to the strategy.
 
 #### Configure Strategy
