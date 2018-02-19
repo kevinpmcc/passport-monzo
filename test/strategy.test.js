@@ -1,9 +1,9 @@
 "use strict";
 
-const MondoStrategy = require("../lib/strategy");
+const MonzoStrategy = require("../lib/strategy");
 
 describe("Strategy", () => {
-  let strategy = new MondoStrategy({
+  let strategy = new MonzoStrategy({
     clientID: "ABC123",
     clientSecret: "secret",
   }, () => {});
@@ -17,7 +17,7 @@ describe("Strategy", () => {
   });
 
   describe("constructed with user agent option", () => {
-    let strategy = new MondoStrategy({
+    let strategy = new MonzoStrategy({
       clientID: "ABC123",
       clientSecret: "secret",
       userAgent: "example.com"
@@ -29,7 +29,7 @@ describe("Strategy", () => {
   });
 
   describe("constructed with custom headers including user agent", () => {
-    let strategy = new MondoStrategy({
+    let strategy = new MonzoStrategy({
       clientID: "ABC123",
       clientSecret: "secret",
       customHeaders: { "User-Agent": "example.org" }
@@ -41,7 +41,7 @@ describe("Strategy", () => {
   });
 
   describe("constructed with both custom headers including user agent and user agent option", () => {
-    let strategy = new MondoStrategy({
+    let strategy = new MonzoStrategy({
       clientID: "ABC123",
       clientSecret: "secret",
       customHeaders: { "User-Agent": "example.org" },

@@ -1,11 +1,11 @@
 "use strict";
 
-const MondoStrategy = require("../lib/strategy");
+const MonzoStrategy = require("../lib/strategy");
 
 describe("Strategy#userProfile", () => {
 
   describe("fetched from default endpoint", () => {
-    var strategy =  new MondoStrategy({
+    var strategy =  new MonzoStrategy({
       clientID: "ABC123",
       clientSecret: "secret"
     }, () => {});
@@ -54,7 +54,7 @@ describe("Strategy#userProfile", () => {
   });
 
   describe("fetched from custom endpoint", () => {
-    var strategy =  new MondoStrategy({
+    var strategy =  new MonzoStrategy({
       clientID: "ABC123",
       clientSecret: "secret",
       userProfileURL: "https://api.monzo.dev/accounts"
@@ -101,7 +101,7 @@ describe("Strategy#userProfile", () => {
   });
 
   describe("error caused by malformed response", () => {
-    var strategy =  new MondoStrategy({
+    var strategy =  new MonzoStrategy({
         clientID: "ABC123",
         clientSecret: "secret"
       }, () => {});
@@ -127,7 +127,7 @@ describe("Strategy#userProfile", () => {
   });
 
   describe("internal error", () => {
-    var strategy =  new MondoStrategy({
+    var strategy =  new MonzoStrategy({
       clientID: "ABC123",
       clientSecret: "secret"
     }, () => {});
